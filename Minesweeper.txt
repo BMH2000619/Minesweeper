@@ -1,0 +1,10 @@
+Idea: Minesweeper
+
+Pseudocode:
+- Create a board that has a certain number of squared cells.
+- Fill the cells with mines and safe and numbered cells.
+- When a cell has a mine, adjust the count of the adjacent cells.
+- Left click to place a flag on a cell.
+- Right click to reveal what is hidden behind the chosen cell.
+- Check for a win or lose conditions.
+- If win, reveal all mines and show win, else reveal all mines and show lose.
