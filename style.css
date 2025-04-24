@@ -1,0 +1,43 @@
+html {
+  background-color: white;
+}
+body {
+  border: 10px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: blanchedalmond;
+}
+
+header {
+  font-size: 50px;
+  margin: 0px 0px 150px 0px;
+  color: rgb(20, 62, 118);
+}
+
+main {
+  border: 5px solid black;
+  /* width: 600px; */
+  /* height: 600px; */
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+div {
+  border: 2px solid black;
+  text-align: center;
+  font-size: 50px;
+  background-color: lightgray;
+}
+
+.size-of-cells {
+  height: 60px;
+  width: 60px;
+}
+
+.mine {
+  background-image: url('mines.png');
+  background-size: 60px 60px;
+  background-color: #cccccc;
+}
