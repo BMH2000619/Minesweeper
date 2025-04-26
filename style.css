@@ -41,3 +41,20 @@ div {
   background-size: 60px 60px;
   background-color: #cccccc;
 }
+
+button {
+  margin: 30px 0px 0px 0px;
+  width: 160px;
+  height: 60px;
+  font-size: 30px;
+}
+
+.flag {
+  background-image: url('flag.png');
+  background-size: 60px 60px;
+  background-color: #cccccc;
+}
+
+.safe-cell {
+  background-color: darkgray;
+}
