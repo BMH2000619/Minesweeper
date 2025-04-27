@@ -55,28 +55,56 @@ const calcNumbers = () => {
     const isLeftEdge = i % width === 0
     const isRightEdge = i % width === width - 1
 
-    let total = 0
+    if (cells[i].dataset.mine === 'true') {
+      continue
+    }
 
-    if (cells[i].dataset.mine === 'true') continue
-
+    // Checks if there is a bomb on any side and calculate the number it should show on the cell
     const adjacent = []
-    if (!isLeftEdge && i > 0) adjacent.push(i - 1)
-    if (!isRightEdge && i < 99) adjacent.push(i + 1)
-    adjacent.push(i - width)
-    adjacent.push(i + width)
-    if (!isLeftEdge && i - width > 0) adjacent.push(i - width - 1)
-    if (!isRightEdge && i - width >= 0) adjacent.push(i - width + 1)
-    if (!isLeftEdge && i + width < 100) adjacent.push(i + width - 1)
-    if (!isRightEdge && i + width < 100) adjacent.push(i + width - 1)
+    // Checks top
+    if (i >= width) {
+      adjacent.push(i - width)
+    }
+    // Checks Bottom
+    if (i < width * (width - 1)) {
+      adjacent.push(i + width)
+    }
+    // Checks Left
+    if (!isLeftEdge) {
+      adjacent.push(i - 1)
+    }
+    // Checks Right
+    if (!isRightEdge) {
+      adjacent.push(i + 1)
+    }
+    // Check Top-Left
+    if (i >= width && !isLeftEdge) {
+      adjacent.push(i - width - 1)
+    }
+    // Checks Top-Right
+    if (i >= width && !isRightEdge) {
+      adjacent.push(i - width + 1)
+    }
+    // Checks Bottom-left
+    if (i < width * (width - 1) && !isLeftEdge) {
+      adjacent.push(i + width - 1)
+    }
+    // Checks Bottom-Right
+    if (i < width * (width - 1) && !isRightEdge) {
+      adjacent.push(i + width + 1)
+    }
 
+    // Filters out Adjacent Cells that are mines
     const validAdjacent = adjacent.filter(
-      (n) => cells[n].dataset.mine === 'true'
+      (n) => cells[n] && cells[n].dataset.mine === 'true'
     )
 
+    // Stores Adjacent mines count in the datasets
     cells[i].dataset.number = validAdjacent.length
   }
 }
 
+// decides what does the click do, if flag do nothing and if mine its game over
 let handleClick = (cell) => {
   if (cell.classList.contains('flag')) {
     return
@@ -84,10 +112,94 @@ let handleClick = (cell) => {
 
   if (cell.dataset.mine === 'true') {
     cell.classList.add('mine')
-    alert('Game Over!')
-    revealAllMines()
+    alert('YOU LOSE!')
+    showAllMines()
     return
   }
+
+  // Cell will turn into a safe Cell
+  const number = cell.dataset.number
+  cell.classList.add('safe-cell')
+  if (number > 0) {
+    cell.innerText = number
+    return
+  }
+
+  showEmpty(cell)
+}
+
+// Uses breadth-first search from clicked empty space and spreads
+const showEmpty = (cell) => {
+  const id = parseInt(cell.dataset.id)
+  const que = [id]
+  // https://www.w3schools.com/js/js_set_methods.asp
+  const visited = new Set()
+
+  for (let i = 0; i < que.length; i++) {
+    const current = que[i]
+    const currentCell = cells[current]
+
+    if (
+      !currentCell ||
+      visited.has(current) ||
+      currentCell.classList.contains('flag')
+    ) {
+      continue
+    }
+
+    visited.add(current)
+    currentCell.classList.add('safe-cell')
+
+    const number = currentCell.dataset.number
+    if (number > 0) {
+      currentCell.innerText = number
+      continue
+    }
+
+    const adjacent = getNeighborIndices(current)
+    que.push(...adjacent)
+  }
+}
+
+//
+const getNeighborIndices = (i) => {
+  const adjacent = []
+  const isLeftEdge = i % width === 0
+  const isRightEdge = i % width === width - 1
+
+  if (i > 0 && !isLeftEdge) {
+    adjacent.push(i - 1)
+  }
+
+  if (i < width * width - 1 && !isRightEdge) {
+    adjacent.push(i + 1)
+  }
+
+  if (i >= width) {
+    adjacent.push(i - width)
+  }
+
+  if (i < width * (width - 1)) {
+    adjacent.push(i + width)
+  }
+
+  if (i >= width && !isLeftEdge) {
+    adjacent.push(i - width - 1)
+  }
+
+  if (i >= width && !isRightEdge) {
+    adjacent.push(i - width + 1)
+  }
+
+  if (i < width * (width - 1) && !isLeftEdge) {
+    adjacent.push(i + width - 1)
+  }
+
+  if (i < width * (width - 1) && !isRightEdge) {
+    adjacent.push(i + width + 1)
+  }
+
+  return adjacent
 }
 
 // Flags when you right click on a cell
@@ -108,6 +220,19 @@ const showAllMines = () => {
   })
 }
 
-reset.addEventListener('click', boardCreate())
+// This Function Checks if the win condition has been met
+const checkWin = () => {
+  const safeCells = cells.filter((cell) => !cell.dataset.mine)
+  const showSafeCells = safeCells.filter((cell) =>
+    cell.classList.contains('safe-cell')
+  )
+
+  if (safeCells.length === showSafeCells.length) {
+    alert('You Won!')
+    showAllMines()
+  }
+}
+
+reset.addEventListener('click', boardCreate)
 
 boardCreate()
