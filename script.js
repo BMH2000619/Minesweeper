@@ -6,6 +6,8 @@ const width = 10
 let count = 0
 let score = document.querySelector('p')
 let gameOver = false
+let turn = 0
+let turns = document.querySelector('a')
 
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {
@@ -120,6 +122,8 @@ let handleClick = (cell) => {
     const audio = new Audio('./audio/laugh.mp3')
     audio.play()
     showAllMines()
+    turn++
+    turns.innerText = `Turns: ${turn}`
     gameOver = true
     return
   }
@@ -241,6 +245,8 @@ const checkWin = () => {
     showAllMines()
     gameOver = true
     count++
+    turn++
+    turns.innerText = `Turns: ${turn}`
     score.innerText = `Score: ${count}`
   }
 }
