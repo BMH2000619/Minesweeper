@@ -112,7 +112,10 @@ let handleClick = (cell) => {
 
   if (cell.dataset.mine === 'true') {
     cell.classList.add('mine')
-    alert('YOU LOSE!')
+    alert('YOU DIED HAHAHAHAHA!')
+    // https://stackoverflow.com/questions/9419263/how-to-play-audio
+    const audio = new Audio('./audio/laugh.mp3')
+    audio.play()
     showAllMines()
     return
   }
@@ -229,6 +232,8 @@ const checkWin = () => {
 
   if (safeCells.length === showSafeCells.length) {
     alert('YOU WIN!')
+    const audio = new Audio('./audio/clap.mp3')
+    audio.play()
     showAllMines()
   }
 }
