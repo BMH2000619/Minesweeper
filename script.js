@@ -3,6 +3,8 @@ const reset = document.querySelector('button')
 let cells = []
 const mineCount = 10
 const width = 10
+let count = 0
+let score = document.querySelector('p')
 
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {
@@ -129,6 +131,7 @@ let handleClick = (cell) => {
   }
 
   showEmpty(cell)
+  checkWin()
 }
 
 // Uses breadth-first search from clicked empty space and spreads
@@ -164,7 +167,7 @@ const showEmpty = (cell) => {
   }
 }
 
-//
+// Checks the cells that are on the edges of the board and doesn't allow them get out
 const getNeighborIndices = (i) => {
   const adjacent = []
   const isLeftEdge = i % width === 0
@@ -235,6 +238,8 @@ const checkWin = () => {
     const audio = new Audio('./audio/clap.mp3')
     audio.play()
     showAllMines()
+    count++
+    score.innerText = `Score: ${count}`
   }
 }
 
