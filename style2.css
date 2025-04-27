@@ -1,0 +1,37 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('./Images/./background4.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 150px;
+  color: red;
+  font-family: 'Londrina Shadow', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+img {
+  width: 800px;
+  height: 400px;
+  margin: 20px 0px 20px 0px;
+}
+
+button {
+  width: 150px;
+  height: 75px;
+  font-size: 30px;
+  margin: 20px 0px 0px 0px;
+  color: red;
+  font-family: 'Londrina Shadow', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgba(105, 105, 105, 0.418);
+  border-radius: 12px;
+}
