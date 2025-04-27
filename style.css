@@ -1,5 +1,5 @@
 html {
-  background-color: white;
+  background-color: rgb(97, 97, 97);
 }
 body {
   border: 10px solid black;
@@ -8,27 +8,34 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background-color: blanchedalmond;
+  background-color: rgb(255, 235, 205);
+  background-image: url('./Images/./backGround3.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 header {
-  font-size: 50px;
-  margin: 0px 0px 150px 0px;
-  color: rgb(20, 62, 118);
+  font-size: 100px;
+  margin: 0px 0px 100px 0px;
+  color: rgb(0, 0, 0);
+  font-family: 'Londrina Shadow', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 main {
-  border: 5px solid black;
-  /* width: 600px; */
-  /* height: 600px; */
+  border: 5px solid rgba(0, 0, 0, 0.193);
   display: grid;
   grid-template-columns: repeat(10, 1fr);
+  border-radius: 8px;
 }
+
 div {
   border: 2px solid black;
   text-align: center;
   font-size: 50px;
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.6);
 }
 
 .size-of-cells {
@@ -39,7 +46,7 @@ div {
 .mine {
   background-image: url('mines.png');
   background-size: 60px 60px;
-  background-color: #cccccc;
+  background-color: #cccccc60;
 }
 
 button {
@@ -47,14 +54,15 @@ button {
   width: 160px;
   height: 60px;
   font-size: 30px;
+  border-radius: 8px;
 }
 
 .flag {
   background-image: url('flag.png');
   background-size: 60px 60px;
-  background-color: #cccccc;
+  background-color: #cccccc60;
 }
 
 .safe-cell {
-  background-color: darkgray;
+  background-color: rgba(169, 169, 169, 0.6);
 }

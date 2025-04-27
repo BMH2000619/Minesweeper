@@ -228,7 +228,7 @@ const checkWin = () => {
   )
 
   if (safeCells.length === showSafeCells.length) {
-    alert('You Won!')
+    alert('YOU WIN!')
     showAllMines()
   }
 }
