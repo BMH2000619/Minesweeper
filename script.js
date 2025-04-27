@@ -5,6 +5,7 @@ const mineCount = 10
 const width = 10
 let count = 0
 let score = document.querySelector('p')
+let gameOver = false
 
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {
@@ -108,7 +109,7 @@ const calcNumbers = () => {
 
 // decides what does the click do, if flag do nothing and if mine its game over
 let handleClick = (cell) => {
-  if (cell.classList.contains('flag')) {
+  if (gameOver || cell.classList.contains('flag')) {
     return
   }
 
@@ -119,6 +120,7 @@ let handleClick = (cell) => {
     const audio = new Audio('./audio/laugh.mp3')
     audio.play()
     showAllMines()
+    gameOver = true
     return
   }
 
@@ -127,10 +129,9 @@ let handleClick = (cell) => {
   cell.classList.add('safe-cell')
   if (number > 0) {
     cell.innerText = number
-    return
+  } else {
+    showEmpty(cell)
   }
-
-  showEmpty(cell)
   checkWin()
 }
 
@@ -238,11 +239,15 @@ const checkWin = () => {
     const audio = new Audio('./audio/clap.mp3')
     audio.play()
     showAllMines()
+    gameOver = true
     count++
     score.innerText = `Score: ${count}`
   }
 }
 
-reset.addEventListener('click', boardCreate)
+reset.addEventListener('click', () => {
+  gameOver = false
+  boardCreate()
+})
 
 boardCreate()
