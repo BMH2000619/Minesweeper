@@ -8,6 +8,8 @@ let score = document.querySelector('p')
 let gameOver = false
 let turn = 0
 let turns = document.querySelector('a')
+const time = document.querySelector('section')
+let timer = 0
 
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {

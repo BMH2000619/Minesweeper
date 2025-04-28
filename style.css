@@ -17,7 +17,7 @@ body {
 
 header {
   font-size: 100px;
-  margin: 0px 0px 100px 0px;
+  margin: 0px 0px 50px 0px;
   color: rgb(0, 0, 0);
   font-family: 'Londrina Shadow', sans-serif;
   font-weight: 400;
@@ -92,4 +92,12 @@ a {
   font-weight: 400;
   font-style: normal;
   margin: 40px 0px 0px 0px;
+}
+
+section {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 40px 0px 0px 0px;
+  font-size: 45px;
 }
