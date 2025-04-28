@@ -10,6 +10,7 @@ let turn = 0
 let turns = document.querySelector('a')
 const time = document.querySelector('section')
 let timer = 0
+let timerId
 
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {
@@ -55,6 +56,7 @@ const boardCreate = () => {
     cells.push(cell)
   })
   calcNumbers()
+  timerId = setInterval(setTimer, 1000)
 }
 
 const calcNumbers = () => {
@@ -126,6 +128,7 @@ let handleClick = (cell) => {
     showAllMines()
     turn++
     turns.innerText = `Turns: ${turn}`
+    clearInterval(timerId)
     gameOver = true
     return
   }
@@ -246,6 +249,7 @@ const checkWin = () => {
     audio.play()
     showAllMines()
     gameOver = true
+    clearInterval(timerId)
     count++
     turn++
     turns.innerText = `Turns: ${turn}`
@@ -253,8 +257,14 @@ const checkWin = () => {
   }
 }
 
+const setTimer = () => {
+  timer++
+  time.innerText = `Time: ${timer} Seconds has Passed!`
+}
+
 reset.addEventListener('click', () => {
   gameOver = false
+  timer = 0
   boardCreate()
 })
 
