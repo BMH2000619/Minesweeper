@@ -27,7 +27,6 @@ header {
 main {
   border: 5px solid rgba(0, 0, 0, 0.193);
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
   border-radius: 8px;
 }
 

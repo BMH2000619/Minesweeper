@@ -1,8 +1,9 @@
 const main = document.querySelector('main')
 const reset = document.querySelector('.reset')
 let cells = []
-const mineCount = 10
-const width = 10
+const mineCount = 50
+const width = 30
+const height = 10
 let count = 0
 let score = document.querySelector('p')
 let gameOver = false
@@ -15,7 +16,9 @@ let timerId
 // Creates the board on the page filled with 10 x 10 cells
 const boardCreate = () => {
   main.innerHTML = ''
+  const rectangle = width * height
   cells = []
+  main.style.gridTemplateColumns = `repeat(${width}, 1fr)`
 
   // Mines on the board
   const mines = []
@@ -25,7 +28,7 @@ const boardCreate = () => {
 
   // Safe cells on the board
   const safes = []
-  for (let i = 0; i < width * width - mineCount; i++) {
+  for (let i = 0; i < rectangle - mineCount; i++) {
     safes.push('safe')
   }
 
@@ -75,7 +78,7 @@ const calcNumbers = () => {
       adjacent.push(i - width)
     }
     // Checks Bottom
-    if (i < width * (width - 1)) {
+    if (i < width * (height - 1)) {
       adjacent.push(i + width)
     }
     // Checks Left
@@ -95,11 +98,11 @@ const calcNumbers = () => {
       adjacent.push(i - width + 1)
     }
     // Checks Bottom-left
-    if (i < width * (width - 1) && !isLeftEdge) {
+    if (i < width * (height - 1) && !isLeftEdge) {
       adjacent.push(i + width - 1)
     }
     // Checks Bottom-Right
-    if (i < width * (width - 1) && !isRightEdge) {
+    if (i < width * (height - 1) && !isRightEdge) {
       adjacent.push(i + width + 1)
     }
 
@@ -188,7 +191,7 @@ const getNeighborIndices = (i) => {
     adjacent.push(i - 1)
   }
 
-  if (i < width * width - 1 && !isRightEdge) {
+  if (i < width * height - 1 && !isRightEdge) {
     adjacent.push(i + 1)
   }
 
@@ -196,7 +199,7 @@ const getNeighborIndices = (i) => {
     adjacent.push(i - width)
   }
 
-  if (i < width * (width - 1)) {
+  if (i < width * (height - 1)) {
     adjacent.push(i + width)
   }
 
@@ -208,11 +211,11 @@ const getNeighborIndices = (i) => {
     adjacent.push(i - width + 1)
   }
 
-  if (i < width * (width - 1) && !isLeftEdge) {
+  if (i < width * (height - 1) && !isLeftEdge) {
     adjacent.push(i + width - 1)
   }
 
-  if (i < width * (width - 1) && !isRightEdge) {
+  if (i < width * (height - 1) && !isRightEdge) {
     adjacent.push(i + width + 1)
   }
 
