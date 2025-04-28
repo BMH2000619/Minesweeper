@@ -246,7 +246,7 @@ const checkWin = () => {
 
   if (safeCells.length === showSafeCells.length) {
     alert('YOU WIN!')
-    const audio = new Audio('./audio/clap.mp3')
+    const audio = new Audio('./audio/Yippee.mp3')
     audio.play()
     showAllMines()
     gameOver = true
