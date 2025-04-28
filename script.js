@@ -1,5 +1,5 @@
 const main = document.querySelector('main')
-const reset = document.querySelector('button')
+const reset = document.querySelector('.reset')
 let cells = []
 const mineCount = 10
 const width = 10
@@ -128,6 +128,7 @@ let handleClick = (cell) => {
     showAllMines()
     turn++
     turns.innerText = `Turns: ${turn}`
+    score.innerText = `Score: ${count}`
     clearInterval(timerId)
     gameOver = true
     return
@@ -265,6 +266,7 @@ const setTimer = () => {
 reset.addEventListener('click', () => {
   gameOver = false
   timer = 0
+  clearInterval(timerId)
   boardCreate()
 })
 

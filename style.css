@@ -49,7 +49,7 @@ div {
   background-color: #cccccc60;
 }
 
-button {
+.reset {
   margin: 30px 0px 0px 0px;
   width: 160px;
   height: 60px;
@@ -76,7 +76,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 600px;
+  width: 800px;
   background-color: #cccccc00;
 }
 
@@ -98,6 +98,18 @@ section {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin: 40px 0px 0px 0px;
+  margin: 20px 0px 0px 0px;
   font-size: 45px;
+}
+
+.level2 {
+  margin: 30px 0px 0px 0px;
+  width: 160px;
+  height: 60px;
+  font-size: 30px;
+  border-radius: 8px;
+  background-color: rgba(111, 111, 111, 0.868);
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
