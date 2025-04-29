@@ -29,9 +29,9 @@ Detecting all mines results in a win and clicking on a mine results in a loss.
 ### **_Screenshots_**
 
 ![Image](MinesweeperPage.png)
-![Image](images\minesweeper1.png)
-![Image](images\minesweeper2.png)
-![Image](images\minesweeper3.png)
+![Image](./images/minesweeper1.png)
+![Image](./images/minesweeper2.png)
+![Image](./images/minesweeper3.png)
 
 ### **_Future Updates_**
 
