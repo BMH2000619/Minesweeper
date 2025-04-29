@@ -3,20 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Londrina+Shadow&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Londrina+Shadow&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style2.css" />
-    <script defer src="script3.js"></script>
-    <title>WANNA PLAY A GAME!!???</title>
+    <title>Minesweeper</title>
   </head>
   <body>
-    <h1>WANNA PLAY A GAME!!!???</h1>
-    <img src="./Images/letsplay.jpeg" alt="question" />
-    <!-- https://www.geeksforgeeks.org/how-to-link-a-button-to-another-page-in-html/ -->
-    <button onclick="location.href='index.html'">PLAY</button>
+    <header>Minesweeper</header>
+
+    <main></main>
+    <div class="bottom">
+      <button class="reset">Reset</button>
+      <a>Turns:</a>
+      <p>Score:</p>
+      <button class="level2" onclick="location.href='index2.html'">
+        Level 2
+      </button>
+    </div>
+    <section>Timer: 0</section>
   </body>
 </html>
