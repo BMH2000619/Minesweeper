@@ -29,13 +29,17 @@ Detecting all mines results in a win and clicking on a mine results in a loss.
 ### **_Screenshots_**
 
 ![Image](MinesweeperPage.png)
+![Image](Images\minesweeper1.png)
+![Image](Images\minesweeper2.png)
+![Image](Images\minesweeper3.png)
 
 ### **_Future Updates_**
 
-- [ ] Add a higher number of cells.
-- [ ] Add a higher number of mines.
-- [ ] Add a win/loss image when game ends.
+- [x] Add a higher number of cells.
+- [x] Add a higher number of mines.
+- [x] Add a win/loss sound when game ends.
 
 ### **_Credits_**
 
-DrawingBoard: [Figma](https://www.figma.com/)
+- DrawingBoard: [Figma](https://www.figma.com/)
+- Github: [GitHub](https://github.com/BMH2000619/Minesweeper)
