@@ -134,7 +134,7 @@ let handleClick = (cell) => {
     return
   }
 
-  // Cell will turn into a safe Cell
+  // Cells will turn into a safe Cell
   const number = cell.dataset.number
   cell.classList.add('safe-cell')
   if (number > 0) {
@@ -184,34 +184,42 @@ const getNeighborIndices = (i) => {
   const isLeftEdge = i % width === 0
   const isRightEdge = i % width === width - 1
 
+  // Left cell
   if (i > 0 && !isLeftEdge) {
     adjacent.push(i - 1)
   }
 
+  // Right cell
   if (i < width * width - 1 && !isRightEdge) {
     adjacent.push(i + 1)
   }
 
+  // Top cell
   if (i >= width) {
     adjacent.push(i - width)
   }
 
+  // Bottom cell
   if (i < width * (width - 1)) {
     adjacent.push(i + width)
   }
 
+  // Top-Left cell
   if (i >= width && !isLeftEdge) {
     adjacent.push(i - width - 1)
   }
 
+  // Top-Right cell
   if (i >= width && !isRightEdge) {
     adjacent.push(i - width + 1)
   }
 
+  //Bottom-left cell
   if (i < width * (width - 1) && !isLeftEdge) {
     adjacent.push(i + width - 1)
   }
 
+  // Bottom-Right cell
   if (i < width * (width - 1) && !isRightEdge) {
     adjacent.push(i + width + 1)
   }
@@ -258,11 +266,12 @@ const checkWin = () => {
   }
 }
 
+// Timer in seconds
 const setTimer = () => {
   timer++
   time.innerText = `Time: ${timer} Seconds has Passed!`
 }
-
+// Resets board
 reset.addEventListener('click', () => {
   gameOver = false
   timer = 0
